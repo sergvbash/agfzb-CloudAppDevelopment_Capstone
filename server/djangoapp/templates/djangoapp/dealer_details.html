@@ -13,11 +13,10 @@ Index
     {% endif %}
 </div>
     <div class="container">
-    <h3>Dealer: {{ dealer.full_name }}</h3>
-    <h4>City: {{ dealer.city }}</h4>
+    <h4>Review for Dealer: {{ dealer.full_name }}</h4>
+    <h5>City: {{ dealer.city }}</h5>
         <div class="card-columns">
     {% for review in reviews %}
-    <div class="col">
         <div class="col-auto mb-3">
                 <div class="card">
              {% if review.sentiment == "positive" %}
@@ -31,33 +30,27 @@ Index
                                    alt="Sentiment">
                     {% endif %}
                 <div class="card-body bg-light">
-            <h3>Name: {{ review.name }}</h3>
-            <p>Purchase: {{ review.purchase }}</p>
+{#            <h3>Name: {{ review.name }}</h3>#}
             {% if review.purchase %}
-                <p>Purchase date: {{ review.purchase_date }}</p>
-                <p>Car make: {{ review.car_make }}</p>
-                <p>Car model: {{ review.car_model }}</p>
-                <p>Car year: {{ review.car_year }}</p>
+                <h5 class="card-title">{{ review.car_make }}, {{ review.car_model }}</h5>
+                <h5 class="card-title">{{ review.car_year }}</h5>
+                 <p>Purchase date: {{ review.purchase_date }}</p>
             {% endif %}
-            <p>Review: {{ review.review }}</p>
+            <p class="card-text">{{ review.review }}</p>
+
+
+
 {#            <p>Sentiment: {{ review.sentiment }}</p>#}
                 </div>
                 </div>
         </div>
-    </div>
     {% endfor %}
 </div>
+        {% if user.is_authenticated %}
+<a class="btn btn-link" href="{% url 'djangoapp:add_review' dealer.id%}">Add Review</a>
+{% endif %}
     </div>
-{#            {% for dealer in dealership_list %}#}
-{#                <tr>#}
-{#                    <td>{{dealer.id}}</td>#}
-{#                    <td><a href="{% url 'djangoapp:dealer_details' dealer.id %}">{{dealer.full_name}}</a></td>#}
-{#                    <td>{{dealer.city}}</td>#}
-{#                    <td>{{dealer.address}}</td>#}
-{#                    <td>{{dealer.zip}}</td>#}
-{#                    <td>{{dealer.st}}</td>#}
-{#                </tr>#}
-{#            {% endfor %}#}
+
 
     </div>
 

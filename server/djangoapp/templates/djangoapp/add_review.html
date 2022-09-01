@@ -34,7 +34,7 @@ Index
 
               <div class="mb-3">
                   <label for="purchasedate"><b>Select Your Purchase Date: </b></label>
-                  <input class="date-own form-control" style="width: 300px;" type="text" name="purchasedate" id="purchasedate">
+                  <input class="date-own form-control" style="width: 300px;" type="date" name="purchasedate" id="purchasedate">
               </div>
 
         </div>
@@ -48,8 +48,11 @@ Index
             {% endfor %}
         {% endif %}
     </form>
+<a class="btn btn-link" href="{% url 'djangoapp:dealer_details' dealer.id%}">Back</a>
 </div>
+{% endblock %}
 
+{% block script %}
 <script type="text/javascript">
       $('.date-own').datepicker({
          format: 'mm/dd/yyyy'
