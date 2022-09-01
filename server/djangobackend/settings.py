@@ -27,9 +27,10 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost",'127.0.0.1',"localhost:8000","svexamap.us-south.cf.appdomain.cloud"]
 # ALLOWED_HOSTS = ["svexamap.us-south.cf.appdomain.cloud"]
 
+CSRF_TRUSTED_ORIGINS = ['https://oruprav1-8000.theiadocker-3-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',"http://svexamap.us-south.cf.appdomain.cloud",'https://*.127.0.0.1']
 
 # Application definition
 
